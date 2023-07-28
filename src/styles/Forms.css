@@ -1,43 +1,55 @@
 .BoxForm {
-    position: absolute;
-    top: 55%;
-    left: 50%;
-    width: 400px;
-    padding: 40px;
-    transform: translate(-50%, -50%);
-    background-color: rgba(233, 230, 230, 0.616);
-    box-sizing: border-box;
-    box-shadow: 0 15px 25px rgba(34, 34, 34, 0.5);
-    border-radius: 10px;
-   
-  }
-  *{
-    font-family: sans-serif;
-  }
-  .GrupoForm{
-      display: flex;
-      flex-direction: column;
-      gap: 10px;
-  }
-  input{
-    padding: 8px;
-    border: none;
-  }
-  input:hover{
-    cursor: pointer;
-  }
-  select{
-    border: none;
-  }
-  
-  .BoxForm label {
-  
-    padding: 0;
-    color: #000000;
-    text-align: center;
-  }
-  .BoxForm p{
-    color: rgb(238, 85, 85);
-    font-size: 13px;
-    margin: 0px;
-  }
+  position: absolute;
+  top: 80%;
+  left: 50%;
+  width: 500px;
+  padding: 20px 40px;
+  transform: translate(-50%, -50%);
+  background-color: rgb(255, 255, 255);
+  box-sizing: border-box;
+  box-shadow: 0px 15px 25px rgb(34, 34, 34);
+  border-radius: 10px;
+}body {
+  background-color: #6a62d2;
+  background-color: #3696f6;
+}
+/* * {
+  font-family: Arial, Helvetica, sans-serif;
+}
+
+.GrupoForm {
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+}
+input {
+  padding: 8px 13px;
+  border: transparent 1px solid;
+  border-radius: 20px;
+  background-color: #e5e8ed;
+}
+input:hover {
+  cursor: pointer;
+  border: 1px solid black;
+}
+select {
+  border: none;
+  border-radius: 20px;
+  background-color: #e5e8ed;
+  padding: 8px;
+} */
+
+/* .BoxForm label {
+  padding: 0;
+  margin: 0px;
+  color: #3696f6;
+  font-size: 17px;
+}
+.RegistroLabel {
+  font-size: 20px !important;
+}
+.BoxForm p {
+  color: rgb(238, 85, 85);
+  font-size: 13px;
+  margin: 0px;
+} */

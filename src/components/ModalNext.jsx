@@ -32,4 +32,4 @@ const ModalNext = ({bindings,setVisible}) => {
   )
 }
 
-export default ModalNext
+export default ModalNext;
