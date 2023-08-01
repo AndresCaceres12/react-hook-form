@@ -1,17 +1,19 @@
 .BoxForm {
   position: absolute;
-  top: 80%;
-  left: 50%;
-  width: 500px;
+  margin: 0px auto;
+  left: 30%;
+  width:500px;
   padding: 20px 40px;
-  transform: translate(-50%, -50%);
+
   background-color: rgb(255, 255, 255);
   box-sizing: border-box;
   box-shadow: 0px 15px 25px rgb(34, 34, 34);
   border-radius: 10px;
-}body {
+}
+body {
   background-color: #6a62d2;
   background-color: #3696f6;
+  background-color: rgb(90, 187, 147);
 }
 /* * {
   font-family: Arial, Helvetica, sans-serif;
