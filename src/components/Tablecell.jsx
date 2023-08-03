@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import { Button } from "antd";
-
+import "../styles/Forms.css"
+import { EditOutlined } from "@ant-design/icons"
+import { Tooltip } from 'antd';
 const TableCell = ({ value, setValue, setFormData, fieldPath }) => {
   const [isEditing, setIsEditing] = useState(false);
 
@@ -15,23 +16,36 @@ const TableCell = ({ value, setValue, setFormData, fieldPath }) => {
   const handleChange = (e) => {
     const newValue = e.target.value;
     setValue(fieldPath, newValue);
-    setFormData((prevFormData) => {
-      const updatedFormData = { ...prevFormData };
-      const keys = fieldPath.split(".");
-      let currentObj = updatedFormData;
-      for (let i = 0; i < keys.length - 1; i++) {
-        currentObj = currentObj[keys[i]];
-      }
-      currentObj[keys[keys.length - 1]] = newValue;
-      return updatedFormData;
-    });
-  }
+  
+    if (!fieldPath.startsWith("users")) {
+      setFormData((prevFormData) => ({
+        ...prevFormData,
+        users: prevFormData.users.map((user) =>
+          user[fieldPath] === value ? { ...user, [fieldPath]: newValue } : user
+        ),
+      }));
+    } else {
+      setFormData((prevFormData) => {
+        const updatedFormData = { ...prevFormData };
+        const keys = fieldPath.split(".");
+        let currentObj = updatedFormData;
+        for (let i = 0; i < keys.length - 1; i++) {
+          currentObj = currentObj[keys[i]];
+        }
+        currentObj[keys[keys.length - 1]] = newValue;
+        return updatedFormData;
+      });
+    }
+  };
+  
   return (
     <td>
       {isEditing ? (
-        <div>
+        <div className="EditContainer">
           <input type="text" value={value} onChange={handleChange} />
-           <Button onClick={handleApplyClick}>Aplicar</Button>
+         <Tooltip title="Guardar">
+         <span className="Editar" onClick={handleApplyClick}> <EditOutlined/></span>
+         </Tooltip>
         </div> 
       ) : (
         <span onClick={handleEditClick}>{value}</span>

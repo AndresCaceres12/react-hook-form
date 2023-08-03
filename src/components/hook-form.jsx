@@ -1,9 +1,10 @@
 import "../styles/Forms.css";
 import React, { useState } from "react";
-import { useForm, Controller, useFieldArray} from "react-hook-form";
-import { Input, Button, Form, Select, Drawer } from "antd";
+import { useForm, Controller, useFieldArray } from "react-hook-form";
+import { Input, Button, Form, Select, Drawer, Tooltip } from "antd";
 import { paises } from "./Data/Pais";
 import TableCell from "./Tablecell";
+
 const Form1 = () => {
   const {
     control,
@@ -46,6 +47,9 @@ const Form1 = () => {
 
   return (
     <div className={"ContainerTodo"}>
+      <p className="DatosUser">
+        Datos de usuarios
+      </p>
       <div className="BoxForm">
         <Drawer
           title="Form"
@@ -74,11 +78,6 @@ const Form1 = () => {
                       {...field}
                       placeholder="Seleccione su país"
                       allowClear={true}
-                      value={watch("pais")}
-                      onChange={(selectedValue) => {
-                        field.onChange(selectedValue);
-                        setValue("ciudad", null);
-                      }}
                     >
                       {paises.map((pais) => (
                         <Select.Option key={pais.value} value={pais.value}>
@@ -276,9 +275,11 @@ const Form1 = () => {
             ))}
         </tbody>
       </table>
-      <Button size="small" type="primary" onClick={showDrawer}>
-        ➤
-      </Button>
+      <Tooltip title="Form">
+        <Button size="small" type="primary" onClick={showDrawer}>
+          ➤
+        </Button>
+      </Tooltip>
     </div>
   );
 };
