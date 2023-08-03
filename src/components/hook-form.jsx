@@ -12,6 +12,7 @@ const Form1 = () => {
     formState: { errors },
     watch,
     setValue,
+    getValues
   } = useForm({
     mode: "all",
   });
@@ -41,11 +42,13 @@ const Form1 = () => {
       ciudad: data.ciudad,
       genero: data.genero,
     }));
-    console.log(formData);
     setFormData({ ...datosFiltrados, users: usersWithData });
+    console.log(formData);
   };
-
-  return (
+  
+ const pais =getValues("pais")
+ console.log(pais) 
+ return (
     <div className={"ContainerTodo"}>
       <p className="DatosUser">
         Datos de usuarios
@@ -68,16 +71,19 @@ const Form1 = () => {
               }}
               render={({ field }) => (
                 <>
-                  <Form.Item
+                   <Form.Item
                     labelCol={{ span: 24 }}
                     label="País"
-                    validateStatus={errors.pais ? "error" : "success"}
-                    help={errors.pais && errors.pais.message}
                   >
                     <Select
+                      placeholder="Seleccione una opción"
                       {...field}
-                      placeholder="Seleccione su país"
                       allowClear={true}
+                      value={watch("pais")}  
+                      onChange={(selectedValue) => {
+                        field.onChange(selectedValue);
+                        setValue("ciudad", null);
+                      }}
                     >
                       {paises.map((pais) => (
                         <Select.Option key={pais.value} value={pais.value}>
@@ -89,7 +95,7 @@ const Form1 = () => {
                 </>
               )}
             />
-            {watch("pais") && (
+            {getValues("pais") && (
               <Controller
                 name="ciudad"
                 control={control}
@@ -109,7 +115,7 @@ const Form1 = () => {
                       allowClear={true}
                     >
                       {paises
-                        .find((pais) => pais?.value === watch("pais"))
+                        .find((pais) => pais?.value === getValues("pais"))
                         ?.ciudades?.map((ciudad) => (
                           <Select.Option
                             key={ciudad.value}
@@ -156,11 +162,12 @@ const Form1 = () => {
                     )}
                     name={`users.${index}.infoUser.telefono`}
                     control={control}
-                  />
+                  /> 
                   <Controller
                     render={({ field }) => (
                       <Form.Item labelCol={{ span: 24 }} label="Email">
-                        <Input {...field} />
+                        <Input {...field}
+                        />
                       </Form.Item>
                     )}
                     name={`users.${index}.infoUser.email`}
