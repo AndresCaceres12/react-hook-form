@@ -1,57 +1,65 @@
 .BoxForm {
-  position: absolute;
-  margin: 0px auto;
-  left: 30%;
-  width:500px;
-  padding: 20px 40px;
-
-  background-color: rgb(255, 255, 255);
-  box-sizing: border-box;
-  box-shadow: 0px 15px 25px rgb(34, 34, 34);
-  border-radius: 10px;
-}
-body {
-  background-color: #6a62d2;
-  background-color: #3696f6;
-  background-color: rgb(90, 187, 147);
-}
-/* * {
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-.GrupoForm {
   display: flex;
   flex-direction: column;
-  gap: 10px;
+  width:600px;
 }
-input {
-  padding: 8px 13px;
-  border: transparent 1px solid;
-  border-radius: 20px;
-  background-color: #e5e8ed;
-}
-input:hover {
-  cursor: pointer;
-  border: 1px solid black;
-}
-select {
-  border: none;
-  border-radius: 20px;
-  background-color: #e5e8ed;
-  padding: 8px;
-} */
 
-/* .BoxForm label {
-  padding: 0;
-  margin: 0px;
-  color: #3696f6;
-  font-size: 17px;
+@keyframes slide-up {
+  from {
+    transform: translateY(30%);
+  }
+  to {
+    transform: translateY(0);
+  }
 }
-.RegistroLabel {
-  font-size: 20px !important;
+.generos {
+  animation: slide-up 0.5s ease;
 }
-.BoxForm p {
-  color: rgb(238, 85, 85);
-  font-size: 13px;
-  margin: 0px;
-} */
+
+/* Estilos para la tabla */
+.tabla {
+  border-collapse: collapse;
+  width: 100%;
+  max-width: 880px;
+  margin: 0 auto;
+  font-family: Arial, sans-serif;
+}
+
+.tabla th,
+.tabla td {
+  padding: 10px;
+  text-align: left;
+  border-bottom: 1px solid #ccc;
+}
+
+.tabla thead th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+
+.tabla tbody tr:nth-child(even) {
+  background-color: #f2f2f2;
+}
+
+.tabla td > div {
+  display: flex;
+  align-items: center;
+}
+
+.tabla td input[type="text"] {
+  width: 100%;
+  padding: 5px;
+}
+
+.tabla td button {
+  margin-left: 5px;
+  padding: 5px 10px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  cursor: pointer;
+}
+
+.tabla td button:hover {
+  background-color: #0056b3;
+}
