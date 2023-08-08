@@ -47,3 +47,15 @@ gap: 3px;
 .DatosUser{
   border-bottom: 1px solid grey;
 }
+th{
+  font-size: 14px;
+  align-items: center ;
+  max-width: 120px ;
+  min-width: 120px;
+}
+td{
+  font-size: 14px;
+  align-items: center ;
+  max-width: 80px ;
+  min-width: 80px;
+}

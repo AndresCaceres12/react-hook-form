@@ -17,14 +17,6 @@ const TableCell = ({ value, setValue, setFormData, fieldPath }) => {
     const newValue = e.target.value;
     setValue(fieldPath, newValue);
   
-    if (!fieldPath.startsWith("users")) {
-      setFormData((prevFormData) => ({
-        ...prevFormData,
-        users: prevFormData.users.map((user) =>
-          user[fieldPath] === value ? { ...user, [fieldPath]: newValue } : user
-        ),
-      }));
-    } else {
       setFormData((prevFormData) => {
         const updatedFormData = { ...prevFormData };
         const keys = fieldPath.split(".");
@@ -35,7 +27,7 @@ const TableCell = ({ value, setValue, setFormData, fieldPath }) => {
         currentObj[keys[keys.length - 1]] = newValue;
         return updatedFormData;
       });
-    }
+    
   };
   
   return (

@@ -44,3 +44,23 @@
     
     },
   ];
+  export const genero =[{
+    value: "masculino",
+    label: "masculino",
+    actividad: [
+      { value: "kg", label: "Cual es tu altura" },
+    ],
+},
+{
+    value: "femenino",
+    label: "femenino",
+    actividad: [
+      { value: "?weekend", label: "Que haces el fin de semana ? " },
+    ],
+},{
+    value: "otro",
+    label: "otro",
+    actividad: [
+        { value: "pronombres", label: "¿ Que pronombres prefieres ? " },
+    ],
+}]
